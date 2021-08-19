@@ -1,0 +1,3 @@
+class CommitMessage {
+  CommitMessage();
+}
