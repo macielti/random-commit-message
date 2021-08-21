@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.macielti.random_commit_message">
    <application
-        android:label="random_commit_message"
+        android:label="Random Commit Message"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

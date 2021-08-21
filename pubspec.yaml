@@ -15,10 +15,23 @@ dependencies:
   fluttertoast: ^8.0.8
   web_scraper: ^0.1.4
   future_button: ^0.1.2
+  flutter_launcher_icons: ^0.9.1
+  flutter_launcher_name: ^0.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+dependency_overrides:
+  yaml:  ^3.1.0
+
 flutter:
   uses-material-design: true
+
+flutter_icons:
+  image_path: "assets/icon/icon.png"
+  android: true
+  ios: true
+
+flutter_launcher_name:
+  name: "Random Commit Message"

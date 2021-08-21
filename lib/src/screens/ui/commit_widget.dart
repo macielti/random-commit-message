@@ -49,7 +49,7 @@ class _CommitState extends State<Commit> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'What The Commit',
+                  'Random Commit Message',
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
