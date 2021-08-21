@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:future_button/future_button.dart';
 import 'package:random_commit_message/src/client/what_the_commit_client.dart';
 import 'package:random_commit_message/src/models/commit_message.dart';
 
@@ -17,7 +18,7 @@ class _CommitState extends State<Commit> {
 
   WhatTheCommitClient client = WhatTheCommitClient(); // use a provider
 
-  void fetchRandomMessage() async {
+  Future<void> fetchRandomMessage() async {
     final commitMessage = await client.fetchMessage();
     setState(
       () {
@@ -30,7 +31,7 @@ class _CommitState extends State<Commit> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
+        statusBarColor: Colors.black,
       ),
     );
 
@@ -57,6 +58,9 @@ class _CommitState extends State<Commit> {
                     fontSize: 34.0,
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 28,
               ),
               Align(
                 alignment: Alignment.centerLeft,
@@ -86,21 +90,21 @@ class _CommitState extends State<Commit> {
                         size: 20.0,
                       ),
                       onPressed: () {
-                        Clipboard.setData(ClipboardData(text: "your text"));
+                        Clipboard.setData(ClipboardData(
+                          text: _commitMessage.message,
+                        ));
                         Fluttertoast.showToast(
                             msg: 'Commit message added to your clipboard');
                       },
                     ),
-                    IconButton(
+                    FutureIconButton(
                       icon: Icon(
                         Icons.autorenew,
                         color: Colors.white,
                         size: 20.0,
                       ),
-                      onPressed: () {
-                        Fluttertoast.showToast(
-                            msg: 'Fetching new random commit message');
-                        fetchRandomMessage();
+                      onPressed: () async {
+                        await fetchRandomMessage();
                       },
                     )
                   ],
