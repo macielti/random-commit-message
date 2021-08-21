@@ -2,15 +2,15 @@
 
 A simple app that uses whatthecommit.com to fetch and display random commit messages
 
-## Getting Started
+![app running](https://media.giphy.com/media/Onj8RvKgWeIHt8JCFe/giphy.gif)
 
-This project is a starting point for a Flutter application.
+### Need to know for development:
 
-A few resources to get you started if this is your first Flutter project:
+After change on the app launcher icon you need to run:
+- `flutter pub run flutter_launcher_icons:main`
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+After change on the splash loading screen:
+- `flutter pub run flutter_native_splash:create`
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+After change the app launcher name:
+- `flutter pub run flutter_launcher_name:main`
