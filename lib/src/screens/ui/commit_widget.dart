@@ -75,43 +75,51 @@ class _CommitState extends State<Commit> {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 18,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  textDirection: TextDirection.ltr,
-                  children: [
-                    IconButton(
-                      icon: Icon(
-                        Icons.copy,
-                        color: Colors.white,
-                        size: 20.0,
-                      ),
-                      onPressed: () {
-                        Clipboard.setData(ClipboardData(
-                          text: _commitMessage.message,
-                        ));
-                        Fluttertoast.showToast(
-                            msg: 'Commit message added to your clipboard');
-                      },
-                    ),
-                    FutureIconButton(
-                      icon: Icon(
-                        Icons.autorenew,
-                        color: Colors.white,
-                        size: 20.0,
-                      ),
-                      onPressed: () async {
-                        await fetchRandomMessage();
-                      },
-                    )
-                  ],
-                ),
-              ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        notchMargin: 20.0,
+        color: Colors.black,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          textDirection: TextDirection.ltr,
+          children: [
+            IconButton(
+              icon: Icon(
+                Icons.copy,
+                color: Colors.white,
+                size: 20.0,
+              ),
+              onPressed: () {
+                Clipboard.setData(ClipboardData(
+                  text: _commitMessage.message,
+                ));
+                Fluttertoast.showToast(
+                    msg: 'Commit message added to your clipboard');
+              },
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            FutureIconButton(
+              icon: Icon(
+                Icons.autorenew,
+                color: Colors.white,
+                size: 20.0,
+              ),
+              onPressed: () async {
+                await fetchRandomMessage();
+              },
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+            )
+          ],
         ),
       ),
     );
