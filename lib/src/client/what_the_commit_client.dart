@@ -1,11 +1,15 @@
-import 'package:dio/dio.dart';
+import 'package:random_commit_message/src/models/commit_message.dart';
+import 'package:web_scraper/web_scraper.dart';
 
 class WhatTheCommitClient {
   WhatTheCommitClient();
 
-  Future<dynamic> fetchMessage() async {
-    final response = await Dio().get('http://whatthecommit.com/');
+  Future<CommitMessage> fetchMessage() async {
+    final webScraper = WebScraper('http://whatthecommit.com');
+    await webScraper.loadWebPage('/');
+    final element =
+        webScraper.getElement('#content > p:nth-child(1)', []).first;
 
-    return response.data;
+    return CommitMessage(message: element['title']);
   }
 }

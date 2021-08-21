@@ -11,7 +11,6 @@ class RandomCommitMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'What The Commit',
       home: Commit(),
     );
   }
